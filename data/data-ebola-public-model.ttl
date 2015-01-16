@@ -1,0 +1,1998 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schemax: <http://topbraid.org/schemax/> .
+@prefix schema: <http://schema.org/> .
+@prefix eb: <http://isi.edu/dig/ontology/ebola/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node19bmvv0u7x1 a km-dev:R2RMLMapping ;
+    km-dev:sourceName "data-ebola-public-sample.csv" ;
+    km-dev:modelPublicationTime "1421332153287"^^xsd:long ;
+    km-dev:modelVersion "1.7" ;
+    km-dev:hasInputColumns "[[{\"columnName\":\"Category\"}],[{\"columnName\":\"localite_values\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"Value\"}],[{\"columnName\":\"Date\"}],[{\"columnName\":\"Sources\"}],[{\"columnName\":\"Link\"}],[{\"columnName\":\"Localite\"}],[{\"columnName\":\"Country\"}]]" ;
+    km-dev:hasOutputColumns "[[{\"columnName\":\"localite_values\"},{\"columnName\":\"localite_values_latitude\"}],[{\"columnName\":\"place_uri\"}],[{\"columnName\":\"country_uri\"}],[{\"columnName\":\"iso_date\"}],[{\"columnName\":\"Link\"}],[{\"columnName\":\"Country\"}],[{\"columnName\":\"Category\"}],[{\"columnName\":\"Value\"}],[{\"columnName\":\"localite_values\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"Sources\"}],[{\"columnName\":\"hash\"}],[{\"columnName\":\"source_uri\"}],[{\"columnName\":\"localite_values\"},{\"columnName\":\"localite_values_longitude\"}],[{\"columnName\":\"localite_clean\"}]]" ;
+    km-dev:hasModelLabel "data-ebola-public-sample.csv" ;
+    km-dev:hasBaseURI "http://isi.edu/dig/ebola/data/" ;
+    km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Date\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"iso_date\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return iso8601date(getValue(\\\"Date\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Date\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iso_date\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Localite\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"localite_clean\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return clean_localite(getValue(\\\"Localite\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Localite\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_clean\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"localite_clean\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"delimiter\",
+                \"value\": \",\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColName\",
+                \"value\": \"localite_values\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newHNodeId\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SplitValuesCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Link\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"hash\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return md5Hash(getValue(\\\"Country\\\")+getValue(\\\"Localite\\\")+getValue(\\\"Category\\\")+getValue(\\\"Value\\\")+getValue(\\\"Date\\\")+getValue(\\\"Sources\\\")+getValue(\\\"Link\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Category\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"Value\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"Date\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"Sources\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"Link\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"Localite\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"Country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": true,
+                    \"baseURI\": \"http://isi.edu/dig/ebola/data/\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": true,
+                    \"prefix\": \"eb\",
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": false
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"hash\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"eb:EbolaEvent1 (add)\",
+                    \"DomainId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"DomainUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"iso_date\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/endDate\",
+                    \"DomainLabel\": \"eb:EbolaEvent1\",
+                    \"DomainId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"DomainUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iso_date\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iso_date\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Value\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/dig/ontology/ebola/eventValue\",
+                    \"DomainLabel\": \"eb:EbolaEvent1\",
+                    \"DomainId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"DomainUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Value\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Value\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Country\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"country_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"country/\\\"+getValue(\\\"Country\\\").lower()\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"country_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Country\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Country1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Country1 (add)\",
+                    \"DomainId\": \"http://schema.org/Country1 (add)\",
+                    \"DomainUri\": \"http://schema.org/Country\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"localite_values\"},
+                    {\"columnName\": \"Values\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/addressLocality\",
+                    \"DomainLabel\": \"schema:PostalAddress1 (add)\",
+                    \"DomainId\": \"http://schema.org/PostalAddress1 (add)\",
+                    \"DomainUri\": \"http://schema.org/PostalAddress\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"hash\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"place_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return getValue(\\\"hash\\\")+\\\"/place\\\"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"place_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"place_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Place\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Place1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Place1 (add)\",
+                    \"DomainId\": \"http://schema.org/Place1 (add)\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"place_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"place_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP5:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/Place\",
+                    \"edgeId\": \"http://schema.org/location\",
+                    \"edgeTargetId\": \"http://schema.org/Place1\",
+                    \"edgeSourceId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"edgeSourceUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP5:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/PostalAddress1\",
+                    \"edgeId\": \"http://schema.org/address\",
+                    \"edgeTargetId\": \"http://schema.org/PostalAddress1\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP5:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/Country1\",
+                    \"edgeId\": \"http://schema.org/addressCountry\",
+                    \"edgeTargetId\": \"http://schema.org/Country1\",
+                    \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
+                    \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Country\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"schema:Country1\",
+                    \"DomainId\": \"http://schema.org/Country1\",
+                    \"DomainUri\": \"http://schema.org/Country\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Category\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/dig/ontology/ebola/eventType\",
+                    \"DomainLabel\": \"eb:EbolaEvent1\",
+                    \"DomainId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"DomainUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Category\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Category\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Link\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#seeAlso\",
+                    \"DomainLabel\": \"eb:EbolaEvent1\",
+                    \"DomainId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"DomainUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Link\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Link\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Sources\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"source_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"organization/\\\"+getValue(\\\"Sources\\\").lower()\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Sources\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"source_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://www.w3.org/ns/prov#Organization\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://www.w3.org/ns/prov#Organization1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"prov:Organization1 (add)\",
+                    \"DomainId\": \"http://www.w3.org/ns/prov#Organization1 (add)\",
+                    \"DomainUri\": \"http://www.w3.org/ns/prov#Organization\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Sources\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"prov:Organization1\",
+                    \"DomainId\": \"http://www.w3.org/ns/prov#Organization1\",
+                    \"DomainUri\": \"http://www.w3.org/ns/prov#Organization\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Sources\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Sources\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP5:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://www.w3.org/ns/prov#Organization1\",
+                    \"edgeId\": \"http://www.w3.org/ns/prov#hadPrimarySource\",
+                    \"edgeTargetId\": \"http://www.w3.org/ns/prov#Organization1\",
+                    \"edgeSourceId\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent1\",
+                    \"edgeSourceUri\": \"http://isi.edu/dig/ontology/ebola/EbolaEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"orderedColumns\",
+                \"value\": [
+                    {
+                        \"id\": [{\"columnName\": \"Category\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"Category\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"Value\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"Value\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"Date\"}],
+                        \"visible\": true,
+                        \"hideable\": true,
+                        \"name\": \"Date\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"iso_date\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"iso_date\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"Sources\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"Sources\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"source_uri\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"source_uri\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"Link\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"Link\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"hash\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"hash\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"place_uri\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"place_uri\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"country_uri\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"country_uri\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"Country\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"Country\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"localite_values\"}],
+                        \"visible\": true,
+                        \"hideable\": false,
+                        \"name\": \"localite_values\",
+                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"Values\\\"}],\\\"visible\\\":true,\\\"hideable\\\":false,\\\"name\\\":\\\"Values\\\"}]\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"Localite\"}],
+                        \"visible\": true,
+                        \"hideable\": true,
+                        \"name\": \"Localite\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"localite_clean\"}],
+                        \"visible\": true,
+                        \"hideable\": true,
+                        \"name\": \"localite_clean\"
+                    }
+                ],
+                \"type\": \"orderedColumns\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"OrganizeColumnsCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"localite_values\"},
+                    {\"columnName\": \"Values\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"localite_values_latitude\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"9.516667\\\"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"localite_values\"},
+                    {\"columnName\": \"Values\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"localite_values_longitude\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"-13.7\\\"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"localite_values\"},
+                    {\"columnName\": \"localite_values_longitude\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/latitude\",
+                    \"DomainLabel\": \"schema:PostalAddress1\",
+                    \"DomainId\": \"http://schema.org/PostalAddress1\",
+                    \"DomainUri\": \"http://schema.org/PostalAddress\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"localite_values\"},
+                    {\"columnName\": \"localite_values_longitude\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/longitude\",
+                    \"DomainLabel\": \"schema:PostalAddress1\",
+                    \"DomainId\": \"http://schema.org/PostalAddress1\",
+                    \"DomainUri\": \"http://schema.org/PostalAddress\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"localite_values\"},
+                    {\"columnName\": \"localite_values_latitude\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/latitude\",
+                    \"DomainLabel\": \"schema:PostalAddress1\",
+                    \"DomainId\": \"http://schema.org/PostalAddress1\",
+                    \"DomainUri\": \"http://schema.org/PostalAddress\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"localite_values\\\"},{\\\"columnName\\\":\\\"localite_values_latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d a rr:TriplesMap .
+
+_:node19bmvv0u7x1 km-dev:hasTriplesMap km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x2 rr:tableName "data-ebola-public-sample.csv" ;
+    a rr:LogicalTable ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasLogicalTable _:node19bmvv0u7x2 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:logicalTable _:node19bmvv0u7x2 ;
+    rr:subjectMap _:node19bmvv0u7x3 .
+
+_:node19bmvv0u7x1 km-dev:hasSubjectMap _:node19bmvv0u7x3 .
+
+_:node19bmvv0u7x3 km-dev:isPartOfMapping _:node19bmvv0u7x1 ;
+    a rr:SubjectMap ;
+    km-dev:alignmentNodeId "http://isi.edu/dig/ontology/ebola/EbolaEvent1" ;
+    rr:class eb:EbolaEvent ;
+    rr:template "{hash}" ;
+    a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_a094ea0d-8708-430b-9f0f-719a4e0bdc6b rr:predicate eb:eventType .
+
+_:node19bmvv0u7x4 rr:column "Category" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x4 .
+
+km-dev:PredicateObjectMap_a094ea0d-8708-430b-9f0f-719a4e0bdc6b rr:objectMap _:node19bmvv0u7x4 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:predicateObjectMap km-dev:PredicateObjectMap_a094ea0d-8708-430b-9f0f-719a4e0bdc6b .
+
+km-dev:PredicateObjectMap_a094ea0d-8708-430b-9f0f-719a4e0bdc6b a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a094ea0d-8708-430b-9f0f-719a4e0bdc6b .
+
+km-dev:PredicateObjectMap_e9bd7371-65b8-4fad-b88d-b714d561dc53 rr:predicate eb:eventValue .
+
+_:node19bmvv0u7x5 rr:column "Value" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x5 .
+
+km-dev:PredicateObjectMap_e9bd7371-65b8-4fad-b88d-b714d561dc53 rr:objectMap _:node19bmvv0u7x5 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:predicateObjectMap km-dev:PredicateObjectMap_e9bd7371-65b8-4fad-b88d-b714d561dc53 .
+
+km-dev:PredicateObjectMap_e9bd7371-65b8-4fad-b88d-b714d561dc53 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e9bd7371-65b8-4fad-b88d-b714d561dc53 .
+
+km-dev:PredicateObjectMap_ecc4349e-3bfa-4972-a784-ff6dab3246f8 rr:predicate schema:endDate .
+
+_:node19bmvv0u7x6 rr:column "iso_date" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x6 .
+
+km-dev:PredicateObjectMap_ecc4349e-3bfa-4972-a784-ff6dab3246f8 rr:objectMap _:node19bmvv0u7x6 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:predicateObjectMap km-dev:PredicateObjectMap_ecc4349e-3bfa-4972-a784-ff6dab3246f8 .
+
+km-dev:PredicateObjectMap_ecc4349e-3bfa-4972-a784-ff6dab3246f8 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ecc4349e-3bfa-4972-a784-ff6dab3246f8 .
+
+km-dev:PredicateObjectMap_39ee002b-7fb0-4473-af7a-5d5a913eaf75 rr:predicate schema:location .
+
+km-dev:RefObjectMap_cedf626a-d799-436c-839f-3c18e625a4b2 a rr:RefObjectMap , rr:ObjectMap ;
+    rr:parentTriplesMap km-dev:TriplesMap_b590e4e6-7f7d-4eaf-9e23-9dad7793728d ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap km-dev:RefObjectMap_cedf626a-d799-436c-839f-3c18e625a4b2 .
+
+km-dev:PredicateObjectMap_39ee002b-7fb0-4473-af7a-5d5a913eaf75 rr:objectMap km-dev:RefObjectMap_cedf626a-d799-436c-839f-3c18e625a4b2 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:predicateObjectMap km-dev:PredicateObjectMap_39ee002b-7fb0-4473-af7a-5d5a913eaf75 .
+
+km-dev:PredicateObjectMap_39ee002b-7fb0-4473-af7a-5d5a913eaf75 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_39ee002b-7fb0-4473-af7a-5d5a913eaf75 .
+
+km-dev:PredicateObjectMap_9403ee29-fcb0-48ee-827c-e51603469bd8 rr:predicate rdfs:seeAlso .
+
+_:node19bmvv0u7x7 rr:column "Link" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x7 .
+
+km-dev:PredicateObjectMap_9403ee29-fcb0-48ee-827c-e51603469bd8 rr:objectMap _:node19bmvv0u7x7 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:predicateObjectMap km-dev:PredicateObjectMap_9403ee29-fcb0-48ee-827c-e51603469bd8 .
+
+km-dev:PredicateObjectMap_9403ee29-fcb0-48ee-827c-e51603469bd8 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9403ee29-fcb0-48ee-827c-e51603469bd8 .
+
+km-dev:PredicateObjectMap_e53584b5-c2d1-4c0b-a3e4-fc7ed73c7c3e rr:predicate prov:hadPrimarySource .
+
+km-dev:RefObjectMap_f242479d-2503-4b78-adad-db1ab6b3e9e8 a rr:RefObjectMap , rr:ObjectMap ;
+    rr:parentTriplesMap km-dev:TriplesMap_179802e4-99f9-4dd8-9854-41b554db529a ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap km-dev:RefObjectMap_f242479d-2503-4b78-adad-db1ab6b3e9e8 .
+
+km-dev:PredicateObjectMap_e53584b5-c2d1-4c0b-a3e4-fc7ed73c7c3e rr:objectMap km-dev:RefObjectMap_f242479d-2503-4b78-adad-db1ab6b3e9e8 .
+
+km-dev:TriplesMap_0c7db40b-8f1a-4d3a-ab0f-2106a7e2d26d rr:predicateObjectMap km-dev:PredicateObjectMap_e53584b5-c2d1-4c0b-a3e4-fc7ed73c7c3e .
+
+km-dev:PredicateObjectMap_e53584b5-c2d1-4c0b-a3e4-fc7ed73c7c3e a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e53584b5-c2d1-4c0b-a3e4-fc7ed73c7c3e .
+
+km-dev:TriplesMap_b590e4e6-7f7d-4eaf-9e23-9dad7793728d a rr:TriplesMap .
+
+_:node19bmvv0u7x1 km-dev:hasTriplesMap km-dev:TriplesMap_b590e4e6-7f7d-4eaf-9e23-9dad7793728d .
+
+km-dev:TriplesMap_b590e4e6-7f7d-4eaf-9e23-9dad7793728d km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x8 rr:tableName "data-ebola-public-sample.csv" ;
+    a rr:LogicalTable ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasLogicalTable _:node19bmvv0u7x8 .
+
+km-dev:TriplesMap_b590e4e6-7f7d-4eaf-9e23-9dad7793728d rr:logicalTable _:node19bmvv0u7x8 ;
+    rr:subjectMap _:node19bmvv0u7x9 .
+
+_:node19bmvv0u7x1 km-dev:hasSubjectMap _:node19bmvv0u7x9 .
+
+_:node19bmvv0u7x9 km-dev:isPartOfMapping _:node19bmvv0u7x1 ;
+    a rr:SubjectMap ;
+    km-dev:alignmentNodeId "http://schema.org/Place1" ;
+    rr:class schema:Place ;
+    rr:template "{hash}/place" .
+
+km-dev:PredicateObjectMap_e3bb54ba-6f36-42df-bf7b-820719b89885 rr:predicate schema:address .
+
+km-dev:RefObjectMap_910e4fda-bbc5-4f26-8309-869b97848eb3 a rr:RefObjectMap , rr:ObjectMap ;
+    rr:parentTriplesMap km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap km-dev:RefObjectMap_910e4fda-bbc5-4f26-8309-869b97848eb3 .
+
+km-dev:PredicateObjectMap_e3bb54ba-6f36-42df-bf7b-820719b89885 rr:objectMap km-dev:RefObjectMap_910e4fda-bbc5-4f26-8309-869b97848eb3 .
+
+km-dev:TriplesMap_b590e4e6-7f7d-4eaf-9e23-9dad7793728d rr:predicateObjectMap km-dev:PredicateObjectMap_e3bb54ba-6f36-42df-bf7b-820719b89885 .
+
+km-dev:PredicateObjectMap_e3bb54ba-6f36-42df-bf7b-820719b89885 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e3bb54ba-6f36-42df-bf7b-820719b89885 .
+
+km-dev:TriplesMap_179802e4-99f9-4dd8-9854-41b554db529a a rr:TriplesMap .
+
+_:node19bmvv0u7x1 km-dev:hasTriplesMap km-dev:TriplesMap_179802e4-99f9-4dd8-9854-41b554db529a .
+
+km-dev:TriplesMap_179802e4-99f9-4dd8-9854-41b554db529a km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x10 rr:tableName "data-ebola-public-sample.csv" ;
+    a rr:LogicalTable ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasLogicalTable _:node19bmvv0u7x10 .
+
+km-dev:TriplesMap_179802e4-99f9-4dd8-9854-41b554db529a rr:logicalTable _:node19bmvv0u7x10 ;
+    rr:subjectMap _:node19bmvv0u7x11 .
+
+_:node19bmvv0u7x1 km-dev:hasSubjectMap _:node19bmvv0u7x11 .
+
+_:node19bmvv0u7x11 km-dev:isPartOfMapping _:node19bmvv0u7x1 ;
+    a rr:SubjectMap ;
+    km-dev:alignmentNodeId "http://www.w3.org/ns/prov#Organization1" ;
+    rr:class prov:Organization ;
+    rr:template "{source_uri}" .
+
+km-dev:PredicateObjectMap_10989354-3e1e-4891-b7b9-de0e56918e2e rr:predicate rdfs:label .
+
+_:node19bmvv0u7x12 rr:column "Sources" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x12 .
+
+km-dev:PredicateObjectMap_10989354-3e1e-4891-b7b9-de0e56918e2e rr:objectMap _:node19bmvv0u7x12 .
+
+km-dev:TriplesMap_179802e4-99f9-4dd8-9854-41b554db529a rr:predicateObjectMap km-dev:PredicateObjectMap_10989354-3e1e-4891-b7b9-de0e56918e2e .
+
+km-dev:PredicateObjectMap_10989354-3e1e-4891-b7b9-de0e56918e2e a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_10989354-3e1e-4891-b7b9-de0e56918e2e .
+
+km-dev:TriplesMap_f4e0dc38-8b79-4ee6-a0e4-f3aef3b44931 a rr:TriplesMap .
+
+_:node19bmvv0u7x1 km-dev:hasTriplesMap km-dev:TriplesMap_f4e0dc38-8b79-4ee6-a0e4-f3aef3b44931 .
+
+km-dev:TriplesMap_f4e0dc38-8b79-4ee6-a0e4-f3aef3b44931 km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x13 rr:tableName "data-ebola-public-sample.csv" ;
+    a rr:LogicalTable ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasLogicalTable _:node19bmvv0u7x13 .
+
+km-dev:TriplesMap_f4e0dc38-8b79-4ee6-a0e4-f3aef3b44931 rr:logicalTable _:node19bmvv0u7x13 ;
+    rr:subjectMap _:node19bmvv0u7x14 .
+
+_:node19bmvv0u7x1 km-dev:hasSubjectMap _:node19bmvv0u7x14 .
+
+_:node19bmvv0u7x14 km-dev:isPartOfMapping _:node19bmvv0u7x1 ;
+    a rr:SubjectMap ;
+    km-dev:alignmentNodeId "http://schema.org/Country1" ;
+    rr:class schema:Country ;
+    rr:template "{country_uri}" .
+
+km-dev:PredicateObjectMap_714d1d2b-89ad-476f-b53b-24f8c79a1927 rr:predicate rdfs:label .
+
+_:node19bmvv0u7x15 rr:column "Country" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x15 .
+
+km-dev:PredicateObjectMap_714d1d2b-89ad-476f-b53b-24f8c79a1927 rr:objectMap _:node19bmvv0u7x15 .
+
+km-dev:TriplesMap_f4e0dc38-8b79-4ee6-a0e4-f3aef3b44931 rr:predicateObjectMap km-dev:PredicateObjectMap_714d1d2b-89ad-476f-b53b-24f8c79a1927 .
+
+km-dev:PredicateObjectMap_714d1d2b-89ad-476f-b53b-24f8c79a1927 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_714d1d2b-89ad-476f-b53b-24f8c79a1927 .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c a rr:TriplesMap .
+
+_:node19bmvv0u7x1 km-dev:hasTriplesMap km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x16 rr:tableName "data-ebola-public-sample.csv" ;
+    a rr:LogicalTable ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasLogicalTable _:node19bmvv0u7x16 .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c rr:logicalTable _:node19bmvv0u7x16 ;
+    rr:subjectMap _:node19bmvv0u7x17 .
+
+_:node19bmvv0u7x1 km-dev:hasSubjectMap _:node19bmvv0u7x17 .
+
+_:node19bmvv0u7x17 km-dev:isPartOfMapping _:node19bmvv0u7x1 ;
+    a rr:SubjectMap ;
+    km-dev:alignmentNodeId "http://schema.org/PostalAddress1" ;
+    rr:class schema:PostalAddress ;
+    rr:termType rr:BlankNode ;
+    km-dev:namePrefix "schema:PostalAddress1" .
+
+km-dev:PredicateObjectMap_8f8975a6-b78c-46ac-8309-d3a556344b17 rr:predicate schema:addressCountry .
+
+km-dev:RefObjectMap_8f253e74-e1e5-43e2-80b3-a979a7660f1c a rr:RefObjectMap , rr:ObjectMap ;
+    rr:parentTriplesMap km-dev:TriplesMap_f4e0dc38-8b79-4ee6-a0e4-f3aef3b44931 ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap km-dev:RefObjectMap_8f253e74-e1e5-43e2-80b3-a979a7660f1c .
+
+km-dev:PredicateObjectMap_8f8975a6-b78c-46ac-8309-d3a556344b17 rr:objectMap km-dev:RefObjectMap_8f253e74-e1e5-43e2-80b3-a979a7660f1c .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c rr:predicateObjectMap km-dev:PredicateObjectMap_8f8975a6-b78c-46ac-8309-d3a556344b17 .
+
+km-dev:PredicateObjectMap_8f8975a6-b78c-46ac-8309-d3a556344b17 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8f8975a6-b78c-46ac-8309-d3a556344b17 .
+
+km-dev:PredicateObjectMap_22f5a1a7-4537-4dca-9dad-66bbee44ad0e rr:predicate schema:addressLocality .
+
+_:node19bmvv0u7x18 rr:column "[\"localite_values\",\"Values\"]" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x18 .
+
+km-dev:PredicateObjectMap_22f5a1a7-4537-4dca-9dad-66bbee44ad0e rr:objectMap _:node19bmvv0u7x18 .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c rr:predicateObjectMap km-dev:PredicateObjectMap_22f5a1a7-4537-4dca-9dad-66bbee44ad0e .
+
+km-dev:PredicateObjectMap_22f5a1a7-4537-4dca-9dad-66bbee44ad0e a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_22f5a1a7-4537-4dca-9dad-66bbee44ad0e .
+
+km-dev:PredicateObjectMap_734fffc8-69c0-44be-95ae-a93e9a3fe980 rr:predicate schema:latitude .
+
+_:node19bmvv0u7x19 rr:constant "9.516667" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x19 .
+
+km-dev:PredicateObjectMap_734fffc8-69c0-44be-95ae-a93e9a3fe980 rr:objectMap _:node19bmvv0u7x19 .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c rr:predicateObjectMap km-dev:PredicateObjectMap_734fffc8-69c0-44be-95ae-a93e9a3fe980 .
+
+km-dev:PredicateObjectMap_734fffc8-69c0-44be-95ae-a93e9a3fe980 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_734fffc8-69c0-44be-95ae-a93e9a3fe980 .
+
+km-dev:PredicateObjectMap_55f3e852-ab77-43b0-a40c-e0710c501b14 rr:predicate schema:longitude .
+
+_:node19bmvv0u7x20 rr:constant "-13.7" ;
+    a rr:ObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasObjectMap _:node19bmvv0u7x20 .
+
+km-dev:PredicateObjectMap_55f3e852-ab77-43b0-a40c-e0710c501b14 rr:objectMap _:node19bmvv0u7x20 .
+
+km-dev:TriplesMap_01aa1b37-a2db-400f-adb2-0d8ab6fb8e8c rr:predicateObjectMap km-dev:PredicateObjectMap_55f3e852-ab77-43b0-a40c-e0710c501b14 .
+
+km-dev:PredicateObjectMap_55f3e852-ab77-43b0-a40c-e0710c501b14 a rr:PredicateObjectMap ;
+    km-dev:isPartOfMapping _:node19bmvv0u7x1 .
+
+_:node19bmvv0u7x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_55f3e852-ab77-43b0-a40c-e0710c501b14 .
