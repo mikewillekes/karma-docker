@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-docker build -t "karma/offline" ./karma-offline
-docker build -t "karma/web" ./karma-web
+docker build -t "mikewillekes/karma-offline" ./karma-offline
+docker build -t "mikewillekes/karma-web" ./karma-web
 

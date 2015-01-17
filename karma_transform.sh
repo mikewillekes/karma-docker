@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-docker run -v /karma:/karma -v /data:/data karma/offline \
+docker run -v /karma:/karma -v /data:/data mikewillekes/karma-offline \
            edu.isi.karma.rdf.OfflineRdfGenerator \
            --sourcetype CSV \
            --filepath /data/data-ebola-public-sample.csv \
